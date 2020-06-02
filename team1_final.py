@@ -3,6 +3,9 @@
 #Brian Sheridan, Kevin Bentley, Craig Calvert, Samuel Pearce
 
 import os
+from flask import Flask
+app = Flask(escape)
+
 
 '''
 Media resources:
@@ -637,4 +640,9 @@ splashscreen = makePicture(os.path.join(rootFilePathName,"room_pictures","splash
 
 pyCopy(splashscreen,mainWindow,0,0)
 repaint(mainWindow)
+
+@app.route("/")
 play()
+
+port = int(os.environ.get("PORT", 5000))
+app.run(host='0.0.0.0', port=port)
